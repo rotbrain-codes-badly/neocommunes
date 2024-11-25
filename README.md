@@ -15,7 +15,7 @@ You can hide:
 
 ## """Configuration"""
 
-You can just comment out any function you don't want in the code itself, there may be some comments with more specific instructions.
+You can comment out any function you don't want at the bottom the code itself, there may be some comments with more specific instructions.
 
 ## License
 
