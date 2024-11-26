@@ -42,9 +42,9 @@ function hideNewsItemLikeCounter(newsItemClassName) {
     };
 }
 
-function hideCommentLikeCounter() {
-    const commentLikes = document.getElementsByClassName("comment_like");
-    for (const likeButton of commentLikes) {
+function hideReplyLikeCounter() {
+    const replyLikes = document.getElementsByClassName("comment_like");
+    for (const likeButton of replyLikes) {
         let lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
         if (lastCharacter != ")") {
             continue;
@@ -65,5 +65,5 @@ function hideCommentLikeCounter() {
 
     hideNewsItemLikeCounter("news-item update");
     hideNewsItemLikeCounter("news-item comment");
-    hideCommentLikeCounter();
+    hideReplyLikeCounter();
 })();
