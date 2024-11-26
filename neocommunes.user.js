@@ -42,6 +42,20 @@ function hideUpdateLikeCounter() {
     };
 }
 
+function hideCommentLikeCounter() {
+    const commentLikes = document.getElementsByClassName("comment_like");
+    for (const likeButton of commentLikes) {
+        let lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
+        if (lastCharacter != ")") {
+            continue;
+        };
+        while (lastCharacter != " ") {
+            likeButton.innerHTML = likeButton.innerHTML.slice(0, -1);
+            lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
+        };
+    };
+}
+
 
 // The main function
 (function() {
@@ -50,4 +64,5 @@ function hideUpdateLikeCounter() {
     };
 
     hideUpdateLikeCounter();
+    hideCommentLikeCounter();
 })();
