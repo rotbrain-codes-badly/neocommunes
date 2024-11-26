@@ -2,6 +2,7 @@
 // @name        NeoCommunes
 // @namespace   https://rotbrain.neocties.org
 // @match       https://neocities.org/
+// @match       https://neocities.org/site/*
 // @grant       none
 // @version     0.1
 // @author      rotbrain
@@ -25,9 +26,28 @@ function isUserConnected() {
 }
 
 
+function hideUpdateLikeCounter() {
+    const updates = document.getElementsByClassName("news-item update");
+    for (const update of updates ) {
+        const action = update.getElementsByClassName("actions")[0];
+        const likeButton = action.getElementsByTagName("a")[0];
+        let lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
+        if (lastCharacter != ")") {
+            continue;
+        };
+        while (lastCharacter != " ") {
+            likeButton.innerHTML = likeButton.innerHTML.slice(0, -1);
+            lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
+        };
+    };
+}
+
+
 // The main function
 (function() {
     if (isUserHome() && !isUserConnected()) {
         return;
     };
+
+    hideUpdateLikeCounter();
 })();
