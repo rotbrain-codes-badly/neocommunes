@@ -26,10 +26,10 @@ function isUserConnected() {
 }
 
 
-function hideUpdateLikeCounter() {
-    const updates = document.getElementsByClassName("news-item update");
-    for (const update of updates ) {
-        const action = update.getElementsByClassName("actions")[0];
+function hideNewsItemLikeCounter(newsItemClassName) {
+    const newsItems = document.getElementsByClassName(newsItemClassName);
+    for (const newsItem of newsItems ) {
+        const action = newsItem.getElementsByClassName("actions")[0];
         const likeButton = action.getElementsByTagName("a")[0];
         let lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
         if (lastCharacter != ")") {
@@ -63,6 +63,7 @@ function hideCommentLikeCounter() {
         return;
     };
 
-    hideUpdateLikeCounter();
+    hideNewsItemLikeCounter("news-item update");
+    hideNewsItemLikeCounter("news-item comment");
     hideCommentLikeCounter();
 })();
