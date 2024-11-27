@@ -56,14 +56,25 @@ function hideReplyLikeCounter() {
     };
 }
 
+function hideNewsItemLikeHover(newsItemClassName) {
+    const newsItems = document.getElementsByClassName(newsItemClassName);
+    for (const newsItem of newsItems ) {
+        const action = newsItem.getElementsByClassName("actions")[0];
+        const likeButton = action.getElementsByTagName("a")[0];
+        delete likeButton.dataset.originalTitle;
+    };
+}
+
 
 // The main function
 (function() {
     if (isUserHome() && !isUserConnected()) {
         return;
-    };
+    }
 
     hideNewsItemLikeCounter("news-item update");
     hideNewsItemLikeCounter("news-item comment");
     hideReplyLikeCounter();
+    hideNewsItemLikeHover("news-item update");
+    hideNewsItemLikeHover("news-item comment");
 })();
