@@ -65,6 +65,13 @@ function hideNewsItemLikeHover(newsItemClassName) {
     };
 }
 
+function hideReplyLikeHover() {
+    const replyLikes = document.getElementsByClassName("comment_like");
+    for (const likeButton of replyLikes) {
+        delete likeButton.dataset.originalTitle;
+    };
+}
+
 
 // The main function
 (function() {
@@ -77,4 +84,5 @@ function hideNewsItemLikeHover(newsItemClassName) {
     hideReplyLikeCounter();
     hideNewsItemLikeHover("news-item update");
     hideNewsItemLikeHover("news-item comment");
+    hideReplyLikeHover();
 })();
