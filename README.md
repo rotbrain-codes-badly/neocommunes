@@ -1,12 +1,12 @@
 # NeoCommunes
 
-NeoCommunes is a userscript that aims to hide Neocities' social-media features from the dashboard and site profiles.
+NeoCommunes is a userscript that aims to hide Neocities' social-media features from the interface.
 
 ## Features
 
 You can hide:
-* Number of likes (TO-DO)
-* Users who liked on hover (TO-DO)
+* Number of likes
+* Users who liked on hover
 * View count (TO-DO)
 * Follower count (TO-DO)
 * New followers (TO-DO
@@ -15,7 +15,7 @@ You can hide:
 
 ## """Configuration"""
 
-You can comment out any function you don't want at the bottom the code itself, there may be some comments with more specific instructions.
+You can comment out any function you don't want in the main function at the bottom the code.
 
 ## License
 
