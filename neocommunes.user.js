@@ -2,6 +2,7 @@
 // @name        NeoCommunes
 // @namespace   https://rotbrain.neocties.org
 // @match       https://neocities.org/
+// @match       https://neocities.org/*activity* 
 // @match       https://neocities.org/site/*
 // @grant       none
 // @version     0.1
