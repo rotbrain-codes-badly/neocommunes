@@ -4,8 +4,6 @@
 // @match       https://neocities.org/
 // @match       https://neocities.org/*activity* 
 // @match       https://neocities.org/site/*
-// @grant       none
-// @version     0.1
 // @author      rotbrain
 // @description A userscript that hides Neocities' social-media features
 // @license     GPL v3
