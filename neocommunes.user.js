@@ -27,19 +27,23 @@ function isUserConnected() {
 }
 
 
-function hideNewsItemLikeCounter(newsItemClassName) {
+function hideNewsItemLikeCounter(likeButton) {
+    let lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
+    if (lastCharacter != ")") {
+        return;
+    };
+    while (lastCharacter != " ") {
+        likeButton.innerHTML = likeButton.innerHTML.slice(0, -1);
+        lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
+    };
+}
+
+function hideAllNewsItemLikeCounters(newsItemClassName) {
     const newsItems = document.getElementsByClassName(newsItemClassName);
     for (const newsItem of newsItems ) {
         const action = newsItem.getElementsByClassName("actions")[0];
         const likeButton = action.getElementsByTagName("a")[0];
-        let lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
-        if (lastCharacter != ")") {
-            continue;
-        };
-        while (lastCharacter != " ") {
-            likeButton.innerHTML = likeButton.innerHTML.slice(0, -1);
-            lastCharacter = likeButton.innerHTML[likeButton.innerHTML.length - 1];
-        };
+        hideNewsItemLikeCounter(likeButton);
     };
 }
 
@@ -80,8 +84,8 @@ function hideReplyLikeHover() {
         return;
     }
 
-    hideNewsItemLikeCounter("news-item update");
-    hideNewsItemLikeCounter("news-item comment");
+    hideAllNewsItemLikeCounters("news-item update");
+    hideAllNewsItemLikeCounters("news-item comment");
     hideReplyLikeCounter();
     hideNewsItemLikeHover("news-item update");
     hideNewsItemLikeHover("news-item comment");
