@@ -65,12 +65,17 @@ function hideAllReplyLikeCounters() {
     };
 }
 
-function hideNewsItemLikeHover(newsItemClassName) {
+
+function hideNewsItemLikeHover(newsItem) {
+    const action = newsItem.getElementsByClassName("actions")[0];
+    const likeButton = action.getElementsByTagName("a")[0];
+    delete likeButton.dataset.originalTitle;
+}
+
+function hideAllNewsItemLikeHover(newsItemClassName) {
     const newsItems = document.getElementsByClassName(newsItemClassName);
     for (const newsItem of newsItems ) {
-        const action = newsItem.getElementsByClassName("actions")[0];
-        const likeButton = action.getElementsByTagName("a")[0];
-        delete likeButton.dataset.originalTitle;
+        hideNewsItemLikeHover(newsItem);
     };
 }
 
@@ -91,7 +96,7 @@ function hideReplyLikeHover() {
     hideAllNewsItemLikeCounters("news-item update");
     hideAllNewsItemLikeCounters("news-item comment");
     hideAllReplyLikeCounters();
-    hideNewsItemLikeHover("news-item update");
-    hideNewsItemLikeHover("news-item comment");
+    hideAllNewsItemLikeHover("news-item update");
+    hideAllNewsItemLikeHover("news-item comment");
     hideReplyLikeHover();
 })();
