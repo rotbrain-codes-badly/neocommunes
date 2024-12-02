@@ -79,10 +79,14 @@ function hideAllNewsItemLikeHover(newsItemClassName) {
     };
 }
 
-function hideReplyLikeHover() {
+function hideReplyLikeHover(likeButton) {
+    delete likeButton.dataset.originalTitle;
+}
+
+function hideAllReplyLikeHover() {
     const replyLikes = document.getElementsByClassName("comment_like");
     for (const likeButton of replyLikes) {
-        delete likeButton.dataset.originalTitle;
+        hideReplyLikeHover(likeButton);
     };
 }
 
@@ -98,5 +102,5 @@ function hideReplyLikeHover() {
     hideAllReplyLikeCounters();
     hideAllNewsItemLikeHover("news-item update");
     hideAllNewsItemLikeHover("news-item comment");
-    hideReplyLikeHover();
+    hideAllReplyLikeHover();
 })();
